@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="col-md-4 offset-md-4 border p-4">
+            <h3 class="text-center">Admin Login</h3>
+            <form action="./admin" method="post" class="mt-2">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary">
+                </div>
+            </form>
+            <% if(locals.error){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

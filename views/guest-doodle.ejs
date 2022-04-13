@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Doodles</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        input[type='checkbox'] {width: 18px; height: 18px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="my-4">
+            <a href="./">Homepage</a> &nbsp;
+            <a href="./create-doodle" class="btn btn-primary">Create Doodle</a>
+        </div>
+        <% user_doodles.forEach(user_doodle => { %>
+        <div class="col-md-12 border px-4 py-2 mt-2">
+                <div class="form-group">
+                    <p><b>Name: </b><%= user_doodle.user_name %></p>
+                    <% 
+                    let available_time = user_doodle.doodle_time_availibility.split(',').map(Number);;
+                    doodle_times.forEach(doodle_time => { 
+                    %>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" <%= (available_time.includes(doodle_time.id))? 'checked': '' %> onclick="return false;">
+                        <label class="form-check-label" for="inlineCheckbox1"><%= doodle_time.time %></label>
+                    </div>
+                    <% }) %>
+                </div>
+        </div>
+        <% }) %>
+    </div>
+</body>
+</html>

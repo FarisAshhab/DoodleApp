@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Doodle Time</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="./">Doodle App</a>
+        <div id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./set-doodle-time">Set Doodle Time <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./doodle-list">View All Doodles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="./logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="col-md-4 offset-md-4 border p-4">
+            <h3 class="text-center">Set Doodle Time</h3>
+            <form action="./set-doodle-time" method="POST" class="mt-2">
+                <% doodle_times.forEach(function(doodle_time){ %>
+                <div class="form-group">
+                    <label for="<%= doodle_time.id %>">Time <%= doodle_time.id %></label>
+                    <input type="time" name="<%= doodle_time.id %>" id="<%= doodle_time.id %>" class="form-control" placeholder="Enter time" value="<%= doodle_time.time %>" required>
+                </div>
+                <% }); %>
+                <div class="form-group">
+                    <input type="submit" value="Set Time" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
